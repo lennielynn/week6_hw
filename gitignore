@@ -1,0 +1,4 @@
+.env
+fakebook_venv/
+__pycache__/
+migrations/
