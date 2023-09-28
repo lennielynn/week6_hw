@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-class PostSchema(Schema):
+class ItemSchema(Schema):
   id = fields.Str(dumps_only = True)
   item = fields.Str(required = True)
   item_id = fields.Str(required = True)

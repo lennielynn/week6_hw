@@ -5,7 +5,7 @@ from flask_smorest import abort
 #^^^^imports function abort from smorest library (abort is used when an error code is responded)
 
 from sqlalchemy.exc import IntegrityError
-from schemas import PostSchema, UpdateUserSchema, UserSchema, DeleteUserSchema
+from schemas import ItemSchema, UpdateUserSchema, UserSchema, DeleteUserSchema
 from . import bp
 from .UserModel import UserModel
 
@@ -62,7 +62,7 @@ class User(MethodView):
       #func, stat code, specified message^^
 
 @bp.get('/user/<user_id>/post')
-@bp.response(200, PostSchema(many=True))
+@bp.response(200, ItemSchema(many=True))
 def get_user_posts(user_id):
   if user_id not in users:
     abort(404, message='user not found')

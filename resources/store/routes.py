@@ -4,7 +4,7 @@ from flask.views import MethodView
 from flask_smorest import abort
 #^^^^imports function abort from smorest library (abort is used when an error code is responded)
 
-from schemas import PostSchema
+from schemas import ItemSchema
 from . import bp
 #^^^^^^imports blueprint from __init__
 from db import store
@@ -14,7 +14,7 @@ class StoreFront(MethodView):
   def get(self):
     return {'store': store}
 
-  @bp.arguments(PostSchema)
+  @bp.arguments(ItemSchema)
   def post(self, store_data):
     store[uuid4().hex] = store_data
     return store_data, 201
@@ -33,7 +33,7 @@ class SellerItems(MethodView):
       #func, stat code, specified message^^
       # return {'message': 'post not found'}, 400
 
-  @bp.arguments(PostSchema)
+  @bp.arguments(ItemSchema)
   def put(self, store_data, item_id):
     if item_id in store:
       item = store[item_id]

@@ -1,0 +1,2 @@
+reseller store front.
+instead of posts a given user can post items for sale
